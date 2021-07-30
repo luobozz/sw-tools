@@ -43,6 +43,7 @@ class testModal:
             self.isSuccess=False
             return
         response = requests.request(self.way, self.url, data=self.data, headers=headers)
+        print(response)
         if(self.printCallBack):
             self.printCallBack(response,True)
         else:
@@ -55,7 +56,7 @@ def rdTest():
     def setPushUrlPrintCallback(httpRes,testRes):
         print("setPushUrl",httpRes,testRes)
 
-    setPushUrl=testModal().s_way("POST").s_url(host+"/site/reportStreamService/config").s_data({"push_ip":"192.168.1.25", "push_port":1935, "app":"live"}).s_successCondition(setPushUrlSuccessCallback).s_printCallBack(setPushUrlPrintCallback);
+    setPushUrl=testModal().s_way("POST").s_url(host+"/site/reportStreamService/config").s_data('{"push_ip":"192.168.1.25", "push_port":1935, "app":"live"}').s_successCondition(setPushUrlSuccessCallback).s_printCallBack(setPushUrlPrintCallback);
     setPushUrl.doTest()
 
 
