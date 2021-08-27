@@ -20,9 +20,8 @@ def test():
 @app.get("/psm/sniffer")
 def psmSniffer():
     data=service().psmSniffer()
-    print(data)
+    # print(data)
     return responseMessage().s_code(200).s_data(data)
-
 
 @app.get("/test")
 def test():
