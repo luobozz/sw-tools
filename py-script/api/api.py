@@ -25,5 +25,7 @@ def psmSniffer():
 
 @app.get("/test")
 def test():
-    return "ok"
+    data=service().test()
+    # print(data)
+    return responseMessage().s_code(200).s_data(data)
     
